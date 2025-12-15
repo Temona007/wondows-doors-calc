@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Windows & Doors Pricing Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="logo">Windows & Doors</h1>
+            <p class="tagline">Premium Quality, Transparent Pricing</p>
+        </header>
+
+        <main class="calculator-wrapper">
+            <div class="calculator-card">
+                <h2 class="calculator-title">Get Your Custom Quote</h2>
+                
+                <form id="pricingForm" class="pricing-form">
+                    <!-- Product Type Selection -->
+                    <div class="form-section">
+                        <label class="section-label">Product Type</label>
+                        <div class="radio-group">
+                            <input type="radio" id="window" name="productType" value="window" checked>
+                            <label for="window" class="radio-label">
+                                <span class="radio-icon">🪟</span>
+                                <span>Window</span>
+                            </label>
+                            
+                            <input type="radio" id="door" name="productType" value="door">
+                            <label for="door" class="radio-label">
+                                <span class="radio-icon">🚪</span>
+                                <span>Door</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Window Type (shown when window is selected) -->
+                    <div class="form-section" id="windowTypeSection">
+                        <label for="windowType" class="form-label">Window Type</label>
+                        <select id="windowType" name="windowType" class="form-select">
+                            <option value="single-hung">Single Hung</option>
+                            <option value="double-hung">Double Hung</option>
+                            <option value="casement">Casement</option>
+                            <option value="sliding">Sliding</option>
+                            <option value="awning">Awning</option>
+                            <option value="picture">Picture Window</option>
+                        </select>
+                    </div>
+
+                    <!-- Door Type (shown when door is selected) -->
+                    <div class="form-section hidden" id="doorTypeSection">
+                        <label for="doorType" class="form-label">Door Type</label>
+                        <select id="doorType" name="doorType" class="form-select">
+                            <option value="entry">Entry Door</option>
+                            <option value="patio">Patio Door</option>
+                            <option value="french">French Door</option>
+                            <option value="sliding-door">Sliding Door</option>
+                        </select>
+                    </div>
+
+                    <!-- Dimensions -->
+                    <div class="form-row">
+                        <div class="form-section">
+                            <label for="width" class="form-label">Width (inches)</label>
+                            <input type="number" id="width" name="width" class="form-input" min="12" max="120" value="36" required>
+                        </div>
+                        <div class="form-section">
+                            <label for="height" class="form-label">Height (inches)</label>
+                            <input type="number" id="height" name="height" class="form-input" min="12" max="120" value="60" required>
+                        </div>
+                    </div>
+
+                    <!-- Material -->
+                    <div class="form-section">
+                        <label for="material" class="form-label">Material</label>
+                        <select id="material" name="material" class="form-select">
+                            <option value="vinyl">Vinyl</option>
+                            <option value="wood">Wood</option>
+                            <option value="fiberglass">Fiberglass</option>
+                            <option value="aluminum">Aluminum</option>
+                        </select>
+                    </div>
+
+                    <!-- Glass Options -->
+                    <div class="form-section">
+                        <label for="glassType" class="form-label">Glass Type</label>
+                        <select id="glassType" name="glassType" class="form-select">
+                            <option value="single">Single Pane</option>
+                            <option value="double" selected>Double Pane</option>
+                            <option value="triple">Triple Pane</option>
+                            <option value="low-e">Low-E Double Pane</option>
+                            <option value="low-e-triple">Low-E Triple Pane</option>
+                        </select>
+                    </div>
+
+                    <!-- Additional Features -->
+                    <div class="form-section">
+                        <label class="section-label">Additional Features</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="features" value="grids">
+                                <span>Decorative Grids</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="features" value="hardware">
+                                <span>Premium Hardware</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="features" value="tinting">
+                                <span>UV Protection Tinting</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="features" value="installation">
+                                <span>Professional Installation</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="form-section">
+                        <label for="quantity" class="form-label">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" class="form-input" min="1" max="50" value="1" required>
+                    </div>
+
+                    <button type="submit" class="calculate-btn">Calculate Price</button>
+                </form>
+
+                <!-- Price Display -->
+                <div id="priceDisplay" class="price-display hidden">
+                    <div class="price-breakdown">
+                        <h3 class="price-title">Price Breakdown</h3>
+                        <div id="breakdownList" class="breakdown-list"></div>
+                        <div class="price-total">
+                            <span class="total-label">Total Price:</span>
+                            <span id="totalPrice" class="total-amount">$0.00</span>
+                        </div>
+                        <p class="price-note">*Price includes product and selected features. Installation cost added if selected.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2024 Windows & Doors. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
